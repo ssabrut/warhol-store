@@ -13,13 +13,15 @@ export default function Login() {
 
   const Login = () => {
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
     const [usernameFocused, setUsernameFocused] = useState(false);
-    const [passwordFocused, setPasswordFocused] = useState(false);
     const isFormUsernameFocused = usernameFocused ? styles.formFocused : styles.form;
+
+    const [password, setPassword] = useState("");
+    const [passwordFocused, setPasswordFocused] = useState(false);
     const isFormPasswordFocused = passwordFocused ? styles.formFocused : styles.form;
+    
     const isFormEmptyStyle = username == "" || password == "" ? styles.loginBtnDisabled : styles.loginBtn;
-    const disableForm = username == "" || password == "" ? true : false;
+    const disableBtn = username == "" || password == "" ? true : false;
 
     return (
       <View style={styles.loginForm}>
@@ -40,7 +42,7 @@ export default function Login() {
         <TouchableWithoutFeedback>
           <Text style={styles.forgotText}>Forgot password?</Text>
         </TouchableWithoutFeedback>
-        <TouchableOpacity style={isFormEmptyStyle} disabled={disableForm}>
+        <TouchableOpacity style={isFormEmptyStyle} disabled={disableBtn}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
         <TouchableWithoutFeedback onPress={() => navigation.navigate("Register")}>
@@ -76,14 +78,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderRadius: 4,
+    borderRadius: 8,
   },
   formFocused: {
     borderWidth: 1,
     borderColor: "#0314AC",
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderRadius: 4,
+    borderRadius: 8,
   },
   forgotText: {
     textAlign: "right",
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 14,
     backgroundColor: "#0314AC",
-    borderRadius: 4,
+    borderRadius: 8,
     marginTop: 20,
     marginBottom: 16
   },
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 14,
     backgroundColor: "#C9C2CA",
-    borderRadius: 4,
+    borderRadius: 8,
     marginTop: 20,
     marginBottom: 16
   },
