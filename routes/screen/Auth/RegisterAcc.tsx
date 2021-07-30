@@ -48,7 +48,7 @@ export default function RegisterAcc() {
         <TouchableOpacity style={isFormEmptyStyle} disabled={disableBtn} onPress={() => navigation.navigate("RegisterVerify")}>
           <Text style={styles.nextText}>Next</Text>
         </TouchableOpacity>
-        <Text style={{ textAlign: "center" }}>After clicking next, an email will sent to your email address along with <Text style={{ color: "#0314AC" }}>OTP-code.</Text></Text>
+        <Text style={{ textAlign: "center" }}>By clicking next, an email will sent to your email address along with <Text style={{ color: "#0314AC" }}>OTP-code.</Text></Text>
       </View>
     );
   }

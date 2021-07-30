@@ -15,35 +15,22 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const [usernameFocused, setUsernameFocused] = useState(false);
     const isFormUsernameFocused = usernameFocused ? styles.formFocused : styles.form;
-
-    const [password, setPassword] = useState("");
-    const [passwordFocused, setPasswordFocused] = useState(false);
-    const isFormPasswordFocused = passwordFocused ? styles.formFocused : styles.form;
     
-    const isFormEmptyStyle = username == "" || password == "" ? styles.loginBtnDisabled : styles.loginBtn;
-    const disableBtn = username == "" || password == "" ? true : false;
+    const isFormEmptyStyle = username == "" ? styles.loginBtnDisabled : styles.loginBtn;
+    const disableBtn = username == "" ? true : false;
 
     return (
       <View style={styles.loginForm}>
         <Text style={styles.label}>Email</Text>
         <TextInput 
-          style={[isFormUsernameFocused, { marginBottom: 24 }]} 
+          style={[isFormUsernameFocused, { marginBottom: 10 }]} 
           placeholder="e.g johndoe@gmail.com" 
           onChangeText={(username) => setUsername(username)} 
           onFocus={() => setUsernameFocused(true)}
           onBlur={() => setUsernameFocused(false)} />
-        <Text style={styles.label}>Password</Text>
-        <TextInput 
-          style={[isFormPasswordFocused, { marginBottom: 16 }]} 
-          placeholder="Enter password" 
-          onChangeText={(password) => setPassword(password)} 
-          onFocus={() => setPasswordFocused(true)}
-          onBlur={() => setPasswordFocused(false)} />
-        <TouchableWithoutFeedback>
-          <Text style={styles.forgotText}>Forgot password?</Text>
-        </TouchableWithoutFeedback>
-        <TouchableOpacity style={isFormEmptyStyle} disabled={disableBtn}>
-          <Text style={styles.loginText}>Login</Text>
+        <Text style={{ textAlign: "left", marginStart: 4, fontSize: 13, marginBottom: 8 }}>By clicking next, an email will sent to your email address along with <Text style={{ color: "#0314AC" }}>OTP-code.</Text></Text>
+        <TouchableOpacity style={isFormEmptyStyle} disabled={disableBtn} onPress={() => navigation.navigate("LoginVerify")}>
+          <Text style={styles.loginText}>Next</Text>
         </TouchableOpacity>
         <TouchableWithoutFeedback onPress={() => navigation.navigate("Register")}>
           <Text style={styles.swtichAuthText}>Don't have an account? <Text style={styles.span}>Register</Text></Text>
