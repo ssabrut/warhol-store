@@ -1,6 +1,6 @@
 export type RootStackParamList = {
   BottomNavigation: undefined;
-  Main: undefined;
+  Profile: undefined;
   Login: undefined;
   LoginVerify: undefined;
   Register: undefined;

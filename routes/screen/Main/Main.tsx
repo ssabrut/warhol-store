@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { StatusBar } from "expo-status-bar";
-import { useNavigation } from "@react-navigation/native";
-import { View, Text, Button } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../RootStackParamList";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
-type main = StackNavigationProp<RootStackParamList, "Main">;
+import CustomHeader from "../../../assets/components/CustomHeader";
 
 export default function MainScreen() {
-  const navigation = useNavigation<main>();
+  const [type] = useState("main");
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text>Main Screen</Text>
-      <Button title="Login" onPress={() => navigation.navigate("Login")} />
+      <CustomHeader type={type} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+});

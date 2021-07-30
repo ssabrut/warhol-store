@@ -1,21 +1,15 @@
 import React from "react";
 
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { View, Image, StyleSheet } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { RootStackParamList } from "../../RootStackParamList";
 
 import MainScreen from "../Main/Main";
 import Cart from "../Main/Cart";
 import Profile from "../Main/Profile";
 
-type bottomNavigation = StackNavigationProp<RootStackParamList, "BottomNavigation">;
 const Tab = createMaterialBottomTabNavigator();
 
 export default function BottomNavigation() {
-  const navigation = useNavigation<bottomNavigation>();
-
   return (
     <Tab.Navigator
       initialRouteName="MainScreen"
@@ -49,7 +43,7 @@ export default function BottomNavigation() {
           tabBarLabel: "Cart",
           tabBarIcon: ({ focused }) => (
             <View style={styles.container}>
-              <Image style={{ width: 24, height: 24, tintColor: focused ? "#0314AC" : "#525252" }} resizeMode="contain" source={require("./../../../assets/icons/cart.png")} />
+              <Image style={{ width: 24, height: 24, marginRight: 2, tintColor: focused ? "#0314AC" : "#525252" }} resizeMode="contain" source={require("./../../../assets/icons/cart.png")} />
             </View>
           ),
         }}
